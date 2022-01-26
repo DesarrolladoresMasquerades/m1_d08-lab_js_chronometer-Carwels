@@ -14,15 +14,18 @@ const milUniElement = document.getElementById('milUni');
 const splitsElement = document.getElementById('splits');
 
 function printTime() {
-  // ... your code goes here
+ setInterval( () => {
+   printMinutes()
+   printSeconds()
+ }, 1 * 1000)
 }
 
 function printMinutes() {
-  // ... your code goes here
+
 }
 
 function printSeconds() {
-  // ... your code goes here
+ 
 }
 
 // ==> BONUS
@@ -56,8 +59,8 @@ function setResetBtn() {
 
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
-  // ... your code goes here
-});
+  
+ });
 
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {

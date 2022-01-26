@@ -7,7 +7,7 @@ class Chronometer {
 
   start(callback) {
     // ... your code goes here
-    this.IntervalId = setInterval( () => {
+    this.intervalId = setInterval( () => {
       if(callback) { return callback }
       this.currentTime++
     }, 1 * 1000)
@@ -22,7 +22,7 @@ class Chronometer {
   getSeconds() {
     // ... your code goes here
     let seconds = this.currentTime % 60;
-    return seconds
+    return seconds;
 
   }
 
@@ -35,16 +35,17 @@ class Chronometer {
   }
 
   stop() {
-  
     clearInterval(this.intervalId)
   }
 
   reset() {
-    return this.currenTime = 0
+    this.currentTime = 0;
   }
 
   split() {
-    // ... your code goes here
+    let minuteSplit = this.computeTwoDigitNumber(this.getMinutes());
+    let secondsSplit = this.computeTwoDigitNumber(this.getSeconds());
+    return `${minuteSplit}:${secondsSplit}`
   }
 }
 
