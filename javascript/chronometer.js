@@ -28,10 +28,14 @@ class Chronometer {
 
   computeTwoDigitNumber(value) {
     // ... your code goes here
-  let stringValue = value.toString();
+    //MY first solution
+  // let stringValue = value.toString();
   
-  if (stringValue.length < 2) return ("0" + stringValue)
-  else return stringValue;
+  // if (stringValue.length < 2) return ("0" + stringValue)
+  // else return stringValue;
+
+  //ONE LINE SOLUTION
+  return ("0" + value).slice(-2);
   }
 
   stop() {
