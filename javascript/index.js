@@ -14,15 +14,28 @@ const milUniElement = document.getElementById('milUni');
 const splitsElement = document.getElementById('splits');
 
 function printTime() {
-  // ... your code goes here
+
+  setInterval( () => {
+
+    let seconds = printSeconds()
+    let minutes = printMinutes()
+
+    minDecElement.innerText = minutes[0]
+    minUniElement.innerText = minutes[1]
+    secDecElement.innerText = seconds[0]
+    secUniElement.innerText = seconds[1]
+  }, 1 * 1000)
+
 }
 
 function printMinutes() {
-  // ... your code goes here
+  return chronometer.computeTwoDigitNumber(chronometer.getMinutes())
+
 }
 
 function printSeconds() {
-  // ... your code goes here
+  return chronometer.computeTwoDigitNumber(chronometer.getSeconds())
+
 }
 
 // ==> BONUS
@@ -56,10 +69,19 @@ function setResetBtn() {
 
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
-  // ... your code goes here
-});
+
+  if(btnLeftElement.innerText === "START") {
+    chronometer.start();
+    printTime()
+  } else if (btnLeftElement.innterText === "STOP") { chronometer.stop() }
+
+ });
 
 // Reset/Split Button
-btnRightElement.addEventListener('click', () => {
-  // ... your code goes here
-});
+btnRightElement.addEventListener('click', (event) => {
+
+  if (btnRightElement.innerText === "RESET") {
+    chronometer.stop()
+    chronometer.reset()
+  }
+})
